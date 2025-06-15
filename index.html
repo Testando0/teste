@@ -144,7 +144,7 @@
     const audioBtn = document.getElementById('audio-btn');
 
     const IA_BACKEND = "https://blackout-api.speedhosting.cloud"; // ou substitua pela URL externa do seu servidor se necessário
-    const API_KEY = 'AIzaSyAjX8xzFT6jglVEqX6yGr0TAPh25TRRg00'; // Substitua se necessário
+    const API_KEY = 'tQMrrjauITTEDfYDc1'; // Substitua se necessário
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
     function adicionarMensagem(texto, classe) {
@@ -153,7 +153,7 @@
         container.className = 'bot-message';
 
         const img = document.createElement('img');
-        img.src = 'https://files.catbox.moe/olpczo.jpg';
+        img.src = 'https://i.ibb.co/JR8Kjm0P/1002205638.jpg';
         img.alt = 'Bot';
 
         const msg = document.createElement('div');
@@ -174,53 +174,23 @@
     }
 
     async function enviarParaIA(texto) {
-      if (/toshiruz/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 👋 Olá! Quer conhecer os criadores? Toque no botão 💻 créditos no canto superior direito!", 'bot');
-        return;
-      }
-      
-       if (/preços/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: ✅Temos resques aparti de um real. voce garante.1.000 resques para usar livremente para saber os pacotes disponíveis! acesse planos 💎", 'bot');
-        return;
-      }
-      
-      if (/preço/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: ✅1.000 resques 1R$/ 5.000 resques 5R$/ 10.000 resques 10R$/ 20.000 resques 20R$/ 30.000 resques 30R$", 'bot');
+      if (/redzin/i.test(texto)) {
+        adicionarMensagem("KUROMI: 👋 Olá! O Redzin É O Criador De Todos Os Projetos Da Linha "Platinum". 🥰", 'bot');
         return;
       }
       
       if (/api/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola nossa api. alem de ser estavel também responde rapidamente excelente para qualquer projeto😉♥️", 'bot');
+        adicionarMensagem("KUROMI: 🤩 Olá Nossa Api Fornece Serviços Gratuitos Com Muitas Utilizades Incríveis 😉♥️", 'bot');
         return;
       }
       
-       if (/bot/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola Também temos bots disponível para downloads acesso esta em bots e host estara. disponível também a hospedagem que eu estou conectada 😊♥️", 'bot');
+      if (/redmusic/i.test(texto)) {
+        adicionarMensagem("KUROMI: 🥰 Olá O REDMUSIC É Uma Plataforma Premium De Reprodução De Músicas 😊", 'bot');
         return;
       }
       
-      if (/xvideos/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola para ter acesso a esse tipo de conteúdo so no menu da blackaut api nao posso te ajudar😭 ", 'bot');
-        return;
-      }
-      
-      if (/suporte/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola para suporte é so voce ir em planos comprar resques que vai direto pessoalmente falar com meu criador Toshiruz dev", 'bot');
-        return;
-      }
-      
-       if (/curtidas/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola participe com a gente qual dos vips voce curte mais 😉 queremos saber click na imagem de quem voce gosta mais e de seu.like", 'bot');
-        return;
-      }
-      
-      if (/tubex/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌Ola gostou do tubex né , então simplesmente é um simulado do YouTube feita com nossa própria api onde você pode escutar música ver vídeos e fazer downloads gostou né somos totalmente originais bb😉 lembrando quando botão estiver verde esta carregando leva meio segundo 😊", 'bot');
-        return;
-      }
-      
-      if (/gostosa/i.test(texto)) {
-        adicionarMensagem("BLACKOUT: 💌 Hummm você sabia que apertando no ícone do microfone abaixo eu posso ler o que digitei em voz alta para você 😉", 'bot');
+      if (/te amo/i.test(texto)) {
+        adicionarMensagem("KUROMI: 😍 Eu Também Te Amo Seu Lindo 🥰", 'bot');
         return;
       }
       
@@ -228,14 +198,14 @@
       if (tocar) {
         const nomeMusica = tocar[1];
         try {
-          adicionarMensagem("🎧 Buscando música...", "bot");
+          adicionarMensagem("🎧 Buscando Música...", "bot");
           const res = await fetch(`${IA_BACKEND}/baixar-musica?nome=${encodeURIComponent(nomeMusica)}`);
           const dados = await res.json();
 
           if (dados.erro) throw new Error(dados.erro);
 
           adicionarMensagem(`
-            <strong>🎶 Tocando agora:</strong><br>
+            <strong>🎶 Tocando Agora:</strong><br>
             <img src="${dados.imagem}" width="100%"><br>
             <strong>${dados.titulo}</strong><br>
             <audio controls autoplay src="${dados.audio_url}"></audio><br>
@@ -256,7 +226,7 @@
 
         const data = await res.json();
         let resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text || '❌ Não entendi.';
-        adicionarMensagem(`BLACKOUT: ${resposta}`, 'bot');
+        adicionarMensagem(`KUROMI: ${resposta}`, 'bot');
       } catch (err) {
         adicionarMensagem(`❌ Erro: ${err.message}`, 'bot');
       }
@@ -278,15 +248,11 @@
       const synth = window.speechSynthesis;
       const ultimoBot = [...chatLog.querySelectorAll('.bot-message .text')].pop();
       if (ultimoBot) {
-        const texto = ultimoBot.textContent.replace(/^BLACKOUT:\s*/, '');
+        const texto = ultimoBot.textContent.replace(/^KUROMI:\s*/, '');
         const utter = new SpeechSynthesisUtterance(texto);
         utter.lang = 'pt-BR';
         synth.speak(utter);
       }
-    };
-
-    document.getElementById('créditos-btn').onclick = () => {
-      window.open('/credito', '_blank');
     };
   </script>
 
