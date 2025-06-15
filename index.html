@@ -175,27 +175,27 @@
 
     async function enviarParaIA(texto) {
       if (/toshiruz/i.test(texto)) {
-        adicionarMensagem("KUROMI: 👋 Olá! Quer conhecer os criadores? Toque no botão 💻 créditos no canto superior direito!", 'bot');
+        adicionarMensagem("BLACKOUT: 👋 Olá! Quer conhecer os criadores? Toque no botão 💻 créditos no canto superior direito!", 'bot');
         return;
       }
       
       if (/preço/i.test(texto)) {
-        adicionarMensagem("KUROMI: ✅1.000 resques 1R$/ 5.000 resques 5R$/ 10.000 resques 10R$/ 20.000 resques 20R$/ 30.000 resques 30R$", 'bot');
+        adicionarMensagem("BLACKOUT: ✅1.000 resques 1R$/ 5.000 resques 5R$/ 10.000 resques 10R$/ 20.000 resques 20R$/ 30.000 resques 30R$", 'bot');
         return;
       }
       
       if (/api/i.test(texto)) {
-        adicionarMensagem("KUROMI: 💌Ola nossa api. alem de ser estavel também responde rapidamente excelente para qualquer projeto😉♥️", 'bot');
+        adicionarMensagem("BLACKOUT: 💌Ola nossa api. alem de ser estavel também responde rapidamente excelente para qualquer projeto😉♥️", 'bot');
         return;
       }
       
       if (/tubex/i.test(texto)) {
-        adicionarMensagem("KUROMI: 💌Ola gostou do tubex né , então simplesmente é um simulado do YouTube feita com nossa própria api onde você pode escutar música ver vídeos e fazer downloads gostou né somos totalmente originais bb😉 lembrando quando botão estiver verde esta carregando leva meio segundo 😊", 'bot');
+        adicionarMensagem("BLACKOUT: 💌Ola gostou do tubex né , então simplesmente é um simulado do YouTube feita com nossa própria api onde você pode escutar música ver vídeos e fazer downloads gostou né somos totalmente originais bb😉 lembrando quando botão estiver verde esta carregando leva meio segundo 😊", 'bot');
         return;
       }
       
       if (/gostosa/i.test(texto)) {
-        adicionarMensagem("KUROMI: 💌 Hummm você sabia que apertando no ícone do microfone abaixo eu posso ler o que digitei em voz alta para você 😉", 'bot');
+        adicionarMensagem("BLACKOUT: 💌 Hummm você sabia que apertando no ícone do microfone abaixo eu posso ler o que digitei em voz alta para você 😉", 'bot');
         return;
       }
       
@@ -231,7 +231,7 @@
 
         const data = await res.json();
         let resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text || '❌ Não entendi.';
-        adicionarMensagem(`KUROMI: ${resposta}`, 'bot');
+        adicionarMensagem(`BLACKOUT: ${resposta}`, 'bot');
       } catch (err) {
         adicionarMensagem(`❌ Erro: ${err.message}`, 'bot');
       }
@@ -253,7 +253,7 @@
       const synth = window.speechSynthesis;
       const ultimoBot = [...chatLog.querySelectorAll('.bot-message .text')].pop();
       if (ultimoBot) {
-        const texto = ultimoBot.textContent.replace(/^KUROMI:\s*/, '');
+        const texto = ultimoBot.textContent.replace(/^BLACKOUT:\s*/, '');
         const utter = new SpeechSynthesisUtterance(texto);
         utter.lang = 'pt-BR';
         synth.speak(utter);
