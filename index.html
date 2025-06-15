@@ -153,7 +153,7 @@
         container.className = 'bot-message';
 
         const img = document.createElement('img');
-        img.src = 'https://i.ibb.co/JR8Kjm0P/1002205638.jpg';
+        img.src = 'https://i.ibb.co/JR8Kjm0P/1002205638.jpg;
         img.alt = 'Bot';
 
         const msg = document.createElement('div');
@@ -174,23 +174,28 @@
     }
 
     async function enviarParaIA(texto) {
-      if (/redzin/i.test(texto)) {
-        adicionarMensagem("KUROMI: 👋 Olá! O Redzin É O Criador De Todos Os Projetos Da Linha "Platinum". 🥰", 'bot');
+      if (/toshiruz/i.test(texto)) {
+        adicionarMensagem("KUROMI: 👋 Olá! Quer conhecer os criadores? Toque no botão 💻 créditos no canto superior direito!", 'bot');
+        return;
+      }
+      
+      if (/preço/i.test(texto)) {
+        adicionarMensagem("KUROMI: ✅1.000 resques 1R$/ 5.000 resques 5R$/ 10.000 resques 10R$/ 20.000 resques 20R$/ 30.000 resques 30R$", 'bot');
         return;
       }
       
       if (/api/i.test(texto)) {
-        adicionarMensagem("KUROMI: 🤩 Olá Nossa Api Fornece Serviços Gratuitos Com Muitas Utilizades Incríveis 😉♥️", 'bot');
+        adicionarMensagem("KUROMI: 💌Ola nossa api. alem de ser estavel também responde rapidamente excelente para qualquer projeto😉♥️", 'bot');
         return;
       }
       
-      if (/redmusic/i.test(texto)) {
-        adicionarMensagem("KUROMI: 🥰 Olá O REDMUSIC É Uma Plataforma Premium De Reprodução De Músicas 😊", 'bot');
+      if (/tubex/i.test(texto)) {
+        adicionarMensagem("KUROMI: 💌Ola gostou do tubex né , então simplesmente é um simulado do YouTube feita com nossa própria api onde você pode escutar música ver vídeos e fazer downloads gostou né somos totalmente originais bb😉 lembrando quando botão estiver verde esta carregando leva meio segundo 😊", 'bot');
         return;
       }
       
-      if (/te amo/i.test(texto)) {
-        adicionarMensagem("KUROMI: 😍 Eu Também Te Amo Seu Lindo 🥰", 'bot');
+      if (/gostosa/i.test(texto)) {
+        adicionarMensagem("KUROMI: 💌 Hummm você sabia que apertando no ícone do microfone abaixo eu posso ler o que digitei em voz alta para você 😉", 'bot');
         return;
       }
       
@@ -198,14 +203,14 @@
       if (tocar) {
         const nomeMusica = tocar[1];
         try {
-          adicionarMensagem("🎧 Buscando Música...", "bot");
+          adicionarMensagem("🎧 Buscando música...", "bot");
           const res = await fetch(`${IA_BACKEND}/baixar-musica?nome=${encodeURIComponent(nomeMusica)}`);
           const dados = await res.json();
 
           if (dados.erro) throw new Error(dados.erro);
 
           adicionarMensagem(`
-            <strong>🎶 Tocando Agora:</strong><br>
+            <strong>🎶 Tocando agora:</strong><br>
             <img src="${dados.imagem}" width="100%"><br>
             <strong>${dados.titulo}</strong><br>
             <audio controls autoplay src="${dados.audio_url}"></audio><br>
@@ -253,6 +258,10 @@
         utter.lang = 'pt-BR';
         synth.speak(utter);
       }
+    };
+
+    document.getElementById('créditos-btn').onclick = () => {
+      window.open('/credito', '_blank');
     };
   </script>
 
